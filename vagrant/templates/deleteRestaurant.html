@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap.min.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}">
+	<script type="text/javascript" src="{{ url_for('static',filename='bootstrap.min.js') }}"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>Are you sure you want delete {{ restaurant.name }}</h1>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<form class="form-horizontal" action="{{ url_for('deleteRestaurant',restaurant_id=restaurant_id) }}" method="post">
+					<div class="form-group">
+						<div class="col-sm-12">
+							<input class="btn btn-default" type="submit" name="" value="Delete">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col-sm-10">
+				<a class="btn btn-danger" href="{{ url_for('showRestaurants') }}">Cancel</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

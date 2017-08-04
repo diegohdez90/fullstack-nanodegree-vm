@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap.min.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}">
+	<script type="text/javascript" src="{{ url_for('static',filename='bootstrap.min.js') }}"></script>
+</head>
+<body>
+	<h1>Edit {{ menu.name }}</h1>
+	<form action="{{ url_for('editMenuItem',restaurant_id=restaurant_id,menu_id=menu_id) }}" method="post" >
+		<label>Name:<input type="text" name="name" placeholder="{{menu.name}}"></label>
+		<label>Price:<input type="text" name="price" placeholder="{{menu.price}}"></label>
+		<label>Description:<textarea name="description" placeholder="{{menu.description}}"></textarea></label>
+		<label>Course<input type="radio" name="course" value="Appetizer" {% if menu.course ==  "Appetizer" %}  checked  {% endif %}>Appetizer</label>
+		<label><input type="radio" name="course" value="Entree" {% if menu.course ==  "Entree" %}  checked  {% endif %} >Entree</label>
+		<label><input type="radio" name="course" value="Dessert" {% if menu.course ==  "Dessert" %}  checked  {% endif %}>Dessert</label>
+		<label><input type="radio" name="course" value="Beverage" {% if menu.course ==  "Beverage" %}  checked  {% endif %}>Beverage</label>
+		<input type="submit" name="" value="Edit Menu">
+	</form>
+	<a href="{{ url_for('showMenu',restaurant_id=restaurant_id) }}">Cancel</a>
+</body>
+</html>
